@@ -1,16 +1,22 @@
-const complexNumbers = function(num) {
-  const complexNum = num;
-  const [real, operator, imaginaryNumber] = num.split(' ');
-  const [imaginary, iota] = imaginaryNumber.split('');
+const complexNumbers = function(num1, num2) {
+  const complexNum1 = num1;
+  const complexNum2 = num2;
 
   const getReal = function() {
-    return +real;
+    return complexNum1.real;
   }
 
   const getImaginary = function() {
-    return +imaginary;
+    return complexNum1.imaginary;
+  }
+
+  const sumOfTwoComplexNum = function() {
+    const real = complexNum1.real + complexNum2.real;
+    const imaginary = complexNum1.imaginary + complexNum2.imaginary;
+    return {real: real, imaginary: imaginary};
   }
 
   return {getReal, getImaginary};
 }
+
 exports.complexNumbers = complexNumbers;
