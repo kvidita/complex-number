@@ -1,3 +1,43 @@
+const realNumber = function(a) {
+  const value = function() {
+    return a;
+  }
+
+  const toString = function() {
+    return a.toString();
+  }
+
+  const add = function(b) {
+    return realNumber(a + b.value());
+  }
+
+  const multiply = function(b) {
+    return realNumber(a * b.value());
+  }
+
+  return {toString, add, multiply, value};
+}
+
+const imaginary  = function(a) {
+  const value = function() {
+    return a;
+  }
+
+  const toString = function() {
+    return a + 'i';
+  }
+
+  const add = function(b) {
+    return imaginary(a + b.value());
+  }
+
+  const multiply = function(b) {
+    return realNumber(a * -b.value());
+  }
+
+  return {value, add, toString, multiply};
+}
+
 const complexNumber = function(real, img) {
   const getReal = function() {
     return real;
@@ -46,3 +86,5 @@ const complexNumber = function(real, img) {
 }
 
 exports.complexNumber = complexNumber;
+exports.realNumber = realNumber;
+exports.imaginary = imaginary;
